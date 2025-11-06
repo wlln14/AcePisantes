@@ -25,3 +25,6 @@ Visual limpo e fácil de usar
 ❤️ Créditos
 
 Desenvolvido com muita paciência, cafeína e risada por três devs que não deixaram o bug vencer 😅
+
+⚠️ Proibido o uso deste projeto para fins comerciais ou publicação na web.
+Esse e-commerce foi desenvolvido apenas para fins de estudo — copiar, revender ou usar como base para lucro é estritamente vetado.
