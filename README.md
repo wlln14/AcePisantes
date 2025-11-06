@@ -10,11 +10,6 @@ Um projeto simples, moderno e responsivo, trazendo a experiência de um e-commer
 O Ace Pisantes nasceu da ideia de criar um site de venda de tênis com design limpo, navegação fluida e aquele toque de criatividade.
 Tudo foi feito do zero, com atenção aos detalhes e foco em entregar uma experiência leve e funcional.
 
-👥 Time de Desenvolvimento
-Nome	Função
-👟 Dev 1	Front-end / Design
-💾 Dev 2	Lógica e funcionalidades
-🔧 Dev 3	Integração e documentação
 ✨ Destaques
 
 Layout moderno e responsivo
