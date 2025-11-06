@@ -1,0 +1,22 @@
+#a75293
+#897587
+b8c2b8
+959f95
+9c379c
+
+
+ACE PISANTE
+
+
+
+
+
+input {
+  width: 100%; /* Ocupa toda a largura disponível */
+  padding: 10px; /* Espaçamento interno */
+  margin-top: 5px; /* Espaço acima */
+  margin-bottom: 10px; /* Espaço abaixo */
+  border-radius: 4px; /* Cantos levemente arredondados */
+  border: 1px solid #ccc; /* Borda cinza clara */
+  box-shadow:  2px #c4c2c2;
+}

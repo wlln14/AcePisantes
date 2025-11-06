@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="styles4.css">
+   <link rel="shortcut icon" href="bendtranscomtenis.png" type="image/x-icon">
+</head>
+<body>
+ 
+    <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo">
+      <img src="bendtrans.png" alt="ACE PISANTES" />
+    </a>
+    
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="Marcas.html">Marcas</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="carrinho.html"style="color: #9400d3; font-size: 22px; border-bottom: 4px solid #9400d3;">Carrinho</a>
+      <a href="quem-somos.html">Quem somos?</a>
+      <a href="contato.html">Contato</a>
+        <a href="loginAce.html">Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="carrinho-container">
+      <h2>Seu Carrinho</h2>
+      <div id="item-carrinho" class="item-carrinho">
+        <!-- Itens do carrinho serão inseridos via JavaScript -->
+      </div>
+
+  <div class="botoes">
+  <button id="btn-continuar">Continuar Comprando</button>
+  <button id="btn-finalizar">Finalizar Compra</button>
+</div>
+
+    </section>
+  </main>
+ <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Ace Pisante. Todos os direitos reservados.</p>
+        <br>
+   <h4>
+    <ul class="ul">
+        <li><a href="Pagina-inicial.html">Politicas de privacidade</a></li>
+         <li><a href="Pagina-inicial.html">Termos de uso</a></li>
+          <li><a href="Pagina-inicial.html">Contato</a></li>
+
+        
+    </ul>
+   </h4>
+    </footer>
+<script>
+  
+  // === Funções utilitárias ===
+  function getItensCarrinho() {
+    return JSON.parse(localStorage.getItem("carrinho")) || [];
+  }
+
+  function setItensCarrinho(itens) {
+    localStorage.setItem("carrinho", JSON.stringify(itens));
+  }
+
+  function getUsuarioLogado() {
+    return JSON.parse(localStorage.getItem("currentUser"));
+  }
+
+  // === Seletores ===
+  const container = document.getElementById("item-carrinho");
+  const btnFinalizar = document.getElementById("btn-finalizar");
+  const btnContinuar = document.getElementById("btn-continuar");
+
+  // === Renderiza os itens na tela ===
+  function renderCarrinho() {
+    const itens = getItensCarrinho();
+    container.innerHTML = "";
+
+    if (itens.length === 0) {
+      container.innerHTML = "<p>Seu carrinho está vazio.</p>";
+      return;
+    }
+
+    let totalGeral = 0;
+    itens.forEach((item) => {
+      const preco = parseFloat(item.preco) || 0;
+      const quantidade = parseInt(item.quantidade) || 1;
+      const total = preco * quantidade;
+      totalGeral += total;
+
+      const div = document.createElement("div");
+      div.classList.add("item");
+      div.innerHTML = `
+        <p><strong>Produto:</strong> ${item.nome}</p>
+        <p><strong>Tamanho:</strong> ${item.tamanho}</p>
+        <p><strong>Quantidade:</strong> ${quantidade}</p>
+        <p><strong>Preço unitário:</strong> R$ ${preco.toFixed(2)}</p>
+        <p><strong>Total:</strong> R$ ${total.toFixed(2)}</p>
+        <hr>
+      `;
+      container.appendChild(div);
+    });
+
+    const totalDiv = document.createElement("div");
+    totalDiv.classList.add("total-geral");
+    totalDiv.innerHTML = `<h3>Total da compra: R$ ${totalGeral.toFixed(2)}</h3>`;
+    container.appendChild(totalDiv);
+  }
+
+  // === Finaliza a compra ===
+  function finalizarCompra() {
+    let usuario = getUsuarioLogado();
+
+    if (!usuario) {
+      // Pergunta se quer logar
+      const querLogar = confirm(
+        "Você precisa estar logado para finalizar a compra. Deseja fazer login agora?"
+      );
+      if (querLogar) {
+        window.location.href = "loginAce.html";
+      }
+      return;
+    }
+
+    const itens = getItensCarrinho();
+    if (itens.length === 0) {
+      alert("Seu carrinho está vazio 😕");
+      return;
+    }
+
+    alert(`Compra finalizada com sucesso, ${usuario.name}! 🛒🔥`);
+      localStorage.removeItem("carrinho");
+    renderCarrinho();
+    
+
+  }
+
+  // === Eventos ===
+  if (btnFinalizar) btnFinalizar.addEventListener("click", finalizarCompra);
+  renderCarrinho();
+
+  if (btnContinuar)
+    btnContinuar.addEventListener("click", () => {
+      window.location.href = "produtos.html";
+    });
+
+  // === Inicialização ===
+  renderCarrinho();
+</script>
+
+
+
+</body>
+</html>

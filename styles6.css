@@ -1,0 +1,315 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 0;
+}
+
+.header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-wrap: wrap; /* permite quebrar linha em telas pequenas */
+}
+
+.logo img {
+  height: 80px;
+  margin: 0;
+  transition: 0.6s ease;
+}
+
+.logo img:hover {
+  scale: 1.1;
+  transition: 0.6s ease;
+}
+
+/* nav principal */
+nav {
+  display: flex;
+  gap: 2em;
+ 
+}
+
+nav a {
+  position: relative; /* pra animação underline funcionar */
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  transition: 0.6s ease;
+}
+
+nav a:hover {
+  color: #9400d3;
+  font-size: 22px;
+  transition: 0.6s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #9400d3;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo img {
+    height: 70px;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2em;
+    margin: 0;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo img {
+    height: 60px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+}
+
+.banner {
+  background: linear-gradient(to right, black, #9400d3);
+  color: #fff;
+  padding: 80px 20px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.banner h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  line-height: 2;
+  width: auto;
+}
+
+.botao {
+  background-color: #fff;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  margin: auto;
+  line-height: 4;
+  transition: background-color 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.botao:hover {
+    background-color: #111;
+    transition: background-color 0.6s ease;
+    color: #fff;
+    padding: 20px 30px;
+    scale: 1.1;
+    font-size: 18px;
+    transition: 0.6s ease;
+}
+
+
+
+.produtos {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.grid-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.produto {
+  box-shadow: 6px 10px 5px rgba(0, 0, 0, 0.103);
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: 0.6s ease;
+}
+
+
+.produto:hover div{
+  box-shadow: 0 4px 12px #9b4de3;
+  background-color: #653096;
+}
+.produto:hover{
+  scale: 1.05;
+  color: #fff;
+}
+
+
+.produto div {
+    display: grid;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 6px 10px 5px rgba(0, 0, 0, 0.103);
+    transition: 0.6s ease;
+    padding-bottom: 35px;
+}
+
+.produto:hover {
+  box-shadow: 0 4px 12px #9b4de3;
+  background-color: #653096;
+  color: #fff;
+  transition: 0.6s ease;
+}
+
+.produto div:hover p {
+    color: #ffffff; 
+    
+}
+
+.produto div:hover h3 {
+    color: #ffffff;
+    
+}
+
+.produto img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+
+.promocao {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  
+}
+
+.promocao img {
+  width: 78vw;
+  border-radius: 10px;
+  transition: 0.6s ease;
+}
+
+.promocao img:hover {
+  scale: 1.043478;
+  transition: 0.6s ease;
+}
+
+.descricao {
+  padding: 16px;
+}
+
+.descricao button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.descricao:hover {
+  background-color: #9b4de3;
+  
+}
+
+.sobre,
+.contato {
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.contato form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contato input,
+.contato textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contato button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+}
+
+.contato button:hover {
+  background-color: #9b4de3;
+}
+
+.rodape {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.rodape img {
+  height: 80px;
+  margin-top: 20px;
+}
+
+.ul li:hover{
+  color: #f5f5f5;
+}
+
+.ul li:hover{
+  scale: 1.05;
+}
+
+.ul li a{
+  transition: 0.6s ease;
+}
+.ul li a:hover{
+  color: #8768af;
+  border-bottom: 2px solid #8768af;
+  transform: translateY(-20px); 
+}

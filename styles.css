@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Reset de estilos padrões */
+body {
+  margin: 0;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 1px 8px #9b4de3;
+  flex-wrap: wrap; 
+}
+
+.logo img {
+  height: 80px;
+  margin: 0;
+  transition: 0.6s ease;
+}
+
+.logo img:hover {
+  scale: 1.1;
+  transition: 0.6s ease;
+}
+
+/* nav principal */
+nav {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+nav a {
+  position: relative; /* pra animação underline funcionar */
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  transition: 0.6s ease;
+}
+
+nav a:hover {
+  color: #9400d3;
+  font-size: 22px;
+  transition: 0.6s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #9400d3;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo img {
+    height: 70px;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2em;
+    margin: 0;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo img {
+    height: 60px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+}
+
+/* Main (conteúdo da página) */
+main {
+    padding: 40px 20px;
+    max-width: 1300px; 
+    margin: 0 auto;
+}
+
+/* Seções */
+section {
+    margin-bottom: 60px;
+    margin: auto;
+}
+
+section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.banner {
+  background: linear-gradient(to right, black, #9400d3);
+  color: #fff;
+  padding: 80px 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.banner h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  line-height: 2;
+  width: auto;
+}
+
+.botao {
+  background-color: #fff;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  margin: auto;
+  line-height: 4;
+  transition: background-color 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.botao:hover {
+    background-color: #111;
+    transition: background-color 0.6s ease;
+    color: #fff;
+    padding: 20px 30px;
+    scale: 1.1;
+    font-size: 18px;
+    transition: 0.6s ease;
+}
+
+.filho h2 {
+    font-size: 30px;
+}
+
+
+.produto-card1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 90px;
+    justify-items: center;
+    align-content: center;
+    margin: auto;
+}
+
+.filho {
+  width: auto;
+    height: 67%;
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+    transition: 0.6s ease;
+    border-radius: 10px;
+    row-gap: 0px;
+    
+}
+
+.filho img {
+  transition: filter 0.6s ease;
+  position: relative;
+  bottom: 60px;
+}
+
+.filho:hover {
+
+  box-shadow: 0 4px 12px #653096;
+  background-color: #653096;
+
+  /* box-shadow: 0 4px 12px #9b4de3;
+  background-color: #9b4de3; */
+  
+  color: #fff;
+  transition: 0.6s ease;
+  scale: 1.05;
+  padding: 60px 20px;
+}
+
+.filho h2 {
+  color: #f9f9f9;
+  transition: 0.1s ease;
+  position: relative;
+  bottom: 100px;
+}
+
+.filho:hover h2 {
+    transition: color 0.6s ease;
+}
+
+.filho:hover img{
+    filter: brightness(0) invert(1);
+    transition: filter 0.6s ease;
+}
+
+
+
+/*------------------------------------------------------------*/
+
+/* Rodapé */
+footer {
+    background-color: #000;
+    padding: 20px 40px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 350px;
+    
+}
+
+footer h1 {
+    color: #f9f9f9;
+    
+}
+
+footer p {
+    font-size: 14px;
+    color: #555;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer h4{
+    list-style: none;
+}
+.ul{
+    list-style: none;
+    font-size: 14px;
+    transition: 0.6s ease; 
+    
+}
+
+.ul li:hover{
+  scale: 1.05;
+}
+
+.ul li a{
+  transition: 0.6s ease;
+}
+.ul li a:hover{
+  color: #8768af;
+  border-bottom: 2px solid #8768af;
+  transform: translateY(-20px); 
+}

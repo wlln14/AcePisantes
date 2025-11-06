@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-BR">
+<!-- Define o idioma da página como Português (Brasil) -->
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Define o conjunto de caracteres como UTF-8 para suportar acentuação e símbolos -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Deixa a página responsiva em dispositivos móveis -->
+
+  <title>Cadastro</title>
+  <!-- Define o título da aba do navegador -->
+
+  <link rel="stylesheet" href="style.css">
+   <link rel="shortcut icon" href="bendtranscomtenis.png" type="image/x-icon">
+  <!-- Importa um arquivo externo de CSS para estilizar a página -->
+</head>
+
+<body>
+  <div class="pai">
+
+      <div>
+        <a href="index.html">
+        <img src="AcePisantesLetreiroTrans.png">
+      </a>
+    </div>
+      
+      <div class="container">
+    <!-- Div principal que centraliza o conteúdo da página -->
+
+    
+    <h2>Cadastro de Usuário</h2>
+    <!-- Título principal da página -->
+
+    <form id="registerForm">
+      <!-- Formulário de cadastro com o id "registerForm" -->
+
+      <div class="form-group">
+        <label for="registerName">Nome</label>
+        <!-- Rótulo para o campo de nome -->
+
+        <input type="text" id="registerName" required />
+        <!-- Campo de entrada de texto para o nome, obrigatório -->
+      </div>
+
+      <div class="form-group">
+        <label for="registerEmail">E-mail</label>
+        <!-- Rótulo para o campo de e-mail -->
+
+        <input type="email" id="registerEmail" required />
+        <!-- Campo de entrada de e-mail, obrigatório -->
+      </div>
+
+      <div class="form-group">
+        <label for="registerPassword">Senha</label>
+        <!-- Rótulo para o campo de senha -->
+
+        <input type="password" id="registerPassword" required />
+        <!-- Campo de entrada para senha, obrigatório -->
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirmação de Senha</label>
+        <!-- Rótulo para o campo de confirmação de senha -->
+
+        <input type="password" id="confirmPassword" required />
+        <!-- Campo de entrada para confirmação de senha, obrigatório -->
+      </div>
+
+      <button type="submit">Cadastrar</button>
+      <!-- Botão para enviar o formulário -->
+    </form>
+
+    <p>Já tem uma conta? <a href="loginAce.html">Faça login</a></p>
+    <!-- Link para redirecionar para a página de login -->
+  </div>
+</div>
+  <script>
+  const form = document.getElementById("registerForm");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById("registerName").value.trim();
+    const email = document.getElementById("registerEmail").value.trim();
+    const password = document.getElementById("registerPassword").value.trim();
+    const confirm = document.getElementById("confirmPassword").value.trim();
+
+    if (password !== confirm) {
+      alert("As senhas não coincidem!");
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Verifica se o email já existe
+    if (users.some((u) => u.email === email)) {
+      alert("Este e-mail já está cadastrado!");
+      return;
+    }
+
+    // Cria o novo usuário
+    const newUser = { name, email, password };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Cadastro realizado com sucesso!");
+    window.location.href = "loginAce.html";
+  });
+</script>
+
+</body>
+</html>
