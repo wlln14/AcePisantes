@@ -22,9 +22,6 @@ Visual limpo e fácil de usar
 
 🌐 Acesse o Projeto
 
-🔗 www.acepisantes.com.br
- (link de exemplo)
-
 ❤️ Créditos
 
 Desenvolvido com muita paciência, cafeína e risada por três devs que não deixaram o bug vencer 😅
